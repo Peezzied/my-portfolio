@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="font.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.0.1/fonts/remixicon.min.css">
+    <title>Karol John</title>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar" id="navigation">
+            <div class="logo">Karol<i class="dot">.</i></div>
+            <div class="menu">
+                <i class="ri-menu-3-line menu"></i>
+            </div>
+        </nav>
+        <header class="head" id="heading">
+            <div class="bar"><i id="type"></i></div>
+            <div class="content">
+                <i>I am <i class="name">Karol John Dela Cruz</i> from 
+                    <i class="country ripple">The Philippines</i>
+                </i>
+            </div>
+            <div class="more">Learn More</div>
+        </header>
+        <main class="content" id="content"></main>
+        <footer class="footer foot"></footer>
+    </div>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        var type = new Typed("#type", {
+            strings: ['hello world', 'hola mundo', 'kumusta sainyo'],
+            typeSpeed: 50,
+            backSpeed: 50,
+            loop: true,
+            fadeOut: false,
+            showCursor: false
+        })
+    </script>
+    <script src="index.js"></script>
+</body>
+</html>

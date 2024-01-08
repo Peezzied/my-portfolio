@@ -1,0 +1,129 @@
+/* RESET */
+
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+html {
+    height: 100%;
+}
+body {
+    min-height: 100vh;
+    height: 100%;
+}
+img, picture, svg, video {
+    display: block;
+    max-width: 100%;
+}
+
+/* MAIN */
+:root {
+    --p: 207 90% 54%;
+    --s: 213.12 93.902% 67.843%;
+}
+.container {
+    height: 100%;
+}
+
+body {
+    background-color: #121212;
+    color: white;
+}
+.navbar {
+    display: flex;
+    height: 17%;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar .logo {
+    font-size: 2.7em;
+    font-family: 'Poppins', sans-serif;
+}
+.navbar .menu {
+    font-size: 1.7em;
+    text-align: center;
+}
+.dot {
+    color: #2196f3
+}
+.bar {
+    background-color: #222222;
+    color: #cccccc;
+    font-family: 'Satoshi', sans-serif;
+    text-align: center;
+    width: 9em;
+    height: 1.7em;
+    font-size: 1.3em;
+    border-radius: 20em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bar i {
+    /* border-right: 2px solid #fff; */
+    overflow: hidden;
+    white-space: nowrap;
+    /* animation: 
+        typing .7s steps(11) infinite,
+        cursor .4s step-end infinite alternate; */
+    line-height: 1em;
+}
+#type::after {
+    content: '';
+    border-right: 2px solid #fff;
+    display: inline;
+    -webkit-animation: blink 0.7s infinite;
+    -moz-animation: blink 0.7s infinite;
+    animation: cursor 0.7s step-end infinite alternate;
+  }
+
+@keyframes cursor {
+    50% {border-color: transparent;}
+}
+@keyframes typing {
+    from { width: 0; }
+}
+
+
+.head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3.5em;
+}
+.head .content {
+    font-size: 5em;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    letter-spacing: 0px;
+    width: 90%;
+    text-align: center;
+    line-height: 1.1em;
+}
+.head .content .name {
+    background-image: linear-gradient(20deg,hsl(var(--p)),hsl(var(--s)));
+    color: transparent;
+    -webkit-background-clip: text;
+    filter: drop-shadow(0 0 5px rgba(99, 121, 218, 0.5));
+}
+.head .content .country {
+    cursor: pointer;
+    user-select: none;
+}
+.ripple {
+
+}
+
+@keyframes ripple-animation {
+
+}
+.container {
+    max-width: 80em;
+    padding: 0 2em;
+    margin: auto;
+}
+

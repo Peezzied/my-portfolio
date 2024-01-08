@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expanding Card</title>
+    <style>
+        .flex-container {
+        display: flex;
+        flex-wrap: wrap;
+        /* Other styles for container */
+        }
+
+        .card {
+        background-color: #b3b3b3;
+        border-radius: 5px;
+        padding: 15px;
+        margin: 10px;
+        width: 300px; /* Initial width */
+        height: 200px; /* Initial height */
+        position: relative;
+        overflow: hidden; /* Prevent content overflow in collapsed state */
+        transition: width 0.3s ease-in-out, height 0.3s ease-in-out, position 0.3s ease-in-out;
+        z-index: 1; 
+        }
+        /* .card.card::before {
+            margin: 10px;
+            padding: 15px;
+            width: 300px;
+            height: 200px;
+            background-color: #000000;
+            display: block;
+            position: absolute;
+            
+            content: "";
+        } */
+        #filler {
+            width: 300px;
+            height: 200px;
+            display: block;
+            padding: 15px;
+            margin: 10px;   
+            background-color: #000000;
+            position: relative;
+        }
+        #filler.active {
+            display: block;
+        }
+
+
+        .expanded {
+        width: 600px; /* Expanded width */
+        height: 500px; /* Expanded height */
+        /* transform: translate(-50%, -50%); Center card on screen */
+        position: fixed;
+        z-index: 999; /* Ensure overlap */
+        
+        }
+
+
+        .backdrop-visible {
+        opacity: 1; /* Show backdrop when card expanded */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="flex-container">
+        <div class="card">
+          <div class="card-header">
+            <button class="expand-btn">Expand</button>
+          </div>
+          <div class="card-content">
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non fugit dolores illo iusto. A corporis sint quibusdam doloremque unde, ea asperiores! Quia eos nesciunt soluta accusantium placeat. Perspiciatis, debitis ad.
+            </div>
+        </div>
+        <!-- <div id="filler"></div> -->
+        <div class="card">
+            <div class="card-header">
+              <button class="expand-btn">Expand</button>
+            </div>
+            <div class="card-content">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, consectetur.
+              </div>
+          </div>
+    </div>
+      
+    <script>
+            const cards = document.querySelectorAll('.card');
+            var fillerDiv = document.createElement('div');
+            fillerDiv.id = 'filler';
+
+
+            cards.forEach(card => {
+            const expandBtn = card.querySelector('.expand-btn');
+                expandBtn.addEventListener('click', () => {
+                    const filler = document.getElementById('filler')
+                    console.log(filler)
+                    if (filler !== null){
+                        console.log('Removed')
+                        filler.remove();
+                    } else {
+
+                        card.parentNode.insertBefore(fillerDiv.cloneNode(true), card.nextSibling)
+                    }
+                    card.classList.toggle('expanded');
+                });
+            });
+
+    </script>
+</body>
+</html>
