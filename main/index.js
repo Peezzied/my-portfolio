@@ -1,8 +1,12 @@
 const country = document.querySelector('.country')
-country.addEventListener('click', (e)=>{
+country.style.setProperty('--pos-r', 50 + 'px')
+country.addEventListener('mousedown', (e)=>{
     let x = e.clientX - e.target.offsetLeft
     let y = e.clientY - e.target.offsetTop
-    
+    let pos = e.target.getBoundingClientRect();
+    console.log(x, y, pos)
+    e.target.style.setProperty('--pos-x', x + 'px')
+    e.target.style.setProperty('--pos-y', y + 'px')
 })
 
 function getRandomColor() {

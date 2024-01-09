@@ -109,21 +109,31 @@ body {
     color: transparent;
     -webkit-background-clip: text;
     filter: drop-shadow(0 0 5px rgba(99, 121, 218, 0.5));
+    
 }
-.head .content .country {
+.country {
+    mix-blend-mode: screen;
     cursor: pointer;
-    user-select: none;
+    background: radial-gradient(var(--pos-r) var(--pos-r) at var(--pos-x) var(--pos-y), rgba(255,0,0,1) 0%, rgba(255,0,0,1) 51%, rgba(255,255,255,1) 51%);
+    -webkit-background-clip: text;
+    color: transparent;
+    width: 100%;
 }
-.ripple {
 
-}
+
 
 @keyframes ripple-animation {
-
+    0% {
+        clip-path: circle(11.8% at 50% 50%);
+    }
+    100% {
+        clip-path: inset(0 0 0 0);
+    }
 }
 .container {
     max-width: 80em;
     padding: 0 2em;
     margin: auto;
+
 }
 
