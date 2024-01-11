@@ -6,7 +6,7 @@ const y = 0
 
 // defaults
 const radius = 0.1
-const timing = 500;
+const timing = 700;
 let currentAnimation;
 let color = 0;
 root.style.setProperty('--timing', timing + 'ms')
@@ -25,7 +25,7 @@ country.addEventListener('mousedown', (e)=>{
     
     const keyframes = [
         {backgroundSize: '100% 100%'},
-        {backgroundSize: '4000% 4000%'}
+        {backgroundSize: '10000% 10000%'}
     ]
     const animationProp = {
         duration: timing,
@@ -38,7 +38,7 @@ country.addEventListener('mousedown', (e)=>{
     var animation = e.target.animate(keyframes, animationProp)
     currentAnimation = animation
     animation.onfinish = ()=>{
-        root.style.setProperty('--color-primary', root.style.getPropertyValue('--color'))
+        root.style.setProperty('--color-primary', root.style.getPropertyValue('--color')) //THE MAGICCC
         console.log(colors[color])
         color++;
     }

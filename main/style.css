@@ -45,16 +45,63 @@ body {
     justify-content: space-between;
     align-items: center;
 }
+@keyframes dot {
+    from {
+        opacity: 0;
+        transform: translateY(-20px)
+    }
+    to {
+        transform: translateY(0px)
+    }
+}
+@keyframes defaultLoadLeft {
+    from {
+        transform: translateX(-20px);
+    }
+    to {
+        transform: translateX(0px);
+    }
+}
+@keyframes defaultLoadRight {
+    from {
+        transform: translateX(20px);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+@keyframes defaultOpacity {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes header {
+    from {
+        transform: scale(0.9);
+        opacity: 0.5;
+        filter: blur(20px);
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
 .navbar .logo {
     font-size: 2.7rem;
     font-family: 'Poppins', sans-serif;
+    animation-name: defaultLoadLeft;
+    display: flex;
 }
 .navbar .menu {
     font-size: 2.7rem;
     text-align: center;
+    animation-name: defaultLoadRight;
 }
-.dot {
-    color: #2196f3
+.logo i {
+    animation-name: dot;
 }
 .bar {
     background-color: #222222;
@@ -68,6 +115,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    animation-name: header;
 }
 .bar i {
     /* border-right: 2px solid #fff; */
@@ -94,12 +142,18 @@ body {
     from { width: 0; }
 }
 
-
 .head {
+    display: flex;
+    align-items: center;
+    flex-grow: 3;
+    height: 60%;
+}
+.head-flex {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 3.5em;
+    width: 100%;
 }
 .head .content {
     font-size: 5rem;
@@ -109,6 +163,8 @@ body {
     width: 15em;
     text-align: center;
     line-height: 1.1em;
+    animation-name: header;
+    animation-timing-function: cubic-bezier(0.42, 0, 0.19, 0.92);
 }
 .head .content .name {
     background-image: linear-gradient(20deg,hsl(var(--p)),hsl(var(--s)));
@@ -117,12 +173,19 @@ body {
     filter: drop-shadow(0 0 5px rgba(99, 121, 218, 0.5));
     
 }
-#country {
-    user-select: none;
-    /* background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary) 100%);
-    -webkit-background-clip: text;
-    color: transparent;
-    mix-blend-mode: screen; */
+.more {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1.2rem;
+    animation-name: header;
+}
+.btn {
+    border: 2.7px solid;
+    padding: 10px 20px;
+    transition: transform .3s;
+    cursor: pointer;
+}
+.btn:hover {
+    transform: translateY(-7px);
 }
 .country {
     mix-blend-mode: screen;
@@ -130,8 +193,8 @@ body {
     --x: 5%;
     --size: 100%;
 
-    background-image: radial-gradient(var(--x) calc(var(--x) * 5.5) at var(--pos-x) var(--pos-y), var(--color) 0%, var(--color) 51%, var(--color-primary) 51%);
-    background-size: var(--size) var(--size);
+    background-image: radial-gradient(var(--x) calc(var(--x) * 5.5) at var(--pos-x) var(--pos-y), var(--color) 0%, var(--color) 20%, var(--color-primary) 51%);
+
     -webkit-background-clip: text;
     color: transparent;
     width: 100%;
@@ -155,6 +218,56 @@ body {
     max-width: 80em;
     padding: 0 2em;
     margin: auto;
+    /* overflow: hidden; */
+}
+
+.content {
+    height: 100%;
+}
+.about {
+    min-height: 100%;
+    grid-template-columns: 1.7fr 2fr;
+    grid-template-rows: 70% 10%;
+    column-gap: 2em;
+}
+.about .description {
+    grid-template-rows: 1fr 2.6fr;
+}
+.description {
+    grid-row: span 2;
+}
+.description .title {
+    display: flex;
+    width: 100%;
+    align-items: flex-end;
+}
+.description .title div {
+    width: 100%;
+    line-height: 100%;
+}
+.description .subtitle {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    margin-top: .5em;
+}
+.description .pr {
+    line-height: 1.5em;
     overflow: hidden;
+}
+.about .socials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+}
+.about .socials > * {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 5em;
+    background-color: white;
+    height: 100%;
+    color: initial;
 }
 
